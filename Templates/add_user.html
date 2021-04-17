@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+</head>
+<body>
+      <form action="" method="post" style="textsize = 20">
+        {% csrf_token %}
+        <b>Username:</b> <input type="text" name="username" style="font-size : 14px;" value="{{ username_value }}"><br>
+        E-mail: <input type="email" name="email" style="font-size : 14px;" value=" {{ email_value }}"><br>
+        <input type="submit" style="font-size : 14px;" value="Submit">
+      </form>
+</body>
+</html>
