@@ -1,5 +1,4 @@
 from django.shortcuts import render, HttpResponse
-from users.user import User
 from users import models
 
 
@@ -21,13 +20,10 @@ def add_user(request):
             template_name="add_user.html",
         )
     elif request.method == "POST":
-        username = request.POST["username"]
-        email = request.POST["email"]
-        user_ = User(username=username, email=email)
 
         user = models.User(
-            username=user_.username,
-            email=user_.email
+            username=request.POST["username"],
+            email=request.POST["email"],
         )
         user.save()
 
@@ -35,8 +31,8 @@ def add_user(request):
             request=request,
             template_name="success.html",
             context={
-                "username": user_.username,
-                "email": user_.email,
+                "username": user.username,
+                "email": user.email,
             },
         )
 

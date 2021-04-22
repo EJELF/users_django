@@ -21,7 +21,7 @@ from users import views
 
 urlpatterns = [
     path("", views.index),
-    path("add_user", views.add_user),
+    path("add_user/", views.add_user),
     path("get_user/<int:user_id>", views.get_user),
     path("edit_user/<int:user_id>", views.edit_user),
     path("delete_user/<int:user_id>", views.delete_user),
