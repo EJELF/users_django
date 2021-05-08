@@ -20,10 +20,10 @@ from users import views
 
 
 urlpatterns = [
-    path("", views.index),
-    path("add_user/", views.add_user),
-    path("get_user/<int:user_id>", views.get_user),
-    path("edit_user/<int:user_id>", views.edit_user),
-    path("delete_user/<int:user_id>", views.delete_user),
+    path("", views.UsersListView.as_view(), name="users"),
+    path("add_user/", views.AddUser.as_view(), name="add-user"),
+    path("get_user/<int:pk>", views.UserDetailView.as_view(), name="get-user"),
+    path("edit_user/<int:pk>", views.EditUser.as_view(), name="edit-user"),
+    path("delete_user/<int:pk>", views.DeleteUserView.as_view(), name="delete-user"),
     path('admin/', admin.site.urls),
 ]
